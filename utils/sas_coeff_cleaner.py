@@ -1,6 +1,8 @@
+import os
 
-fname_in = "/Users/rituraj_tiwari/Documents/Development/hcc-python/utils/V22_17_Coefficient.csv"
-fname_out = "/Users/rituraj_tiwari/Documents/Development/hcc-python/utils/V22_17_Coefficient_cleaned.csv"
+base_dir = os.path.dirname(__file__)
+fname_in = os.path.join(base_dir, "V22_17_Coefficient.csv")
+fname_out = os.path.join(base_dir, "V22_17_Coefficient_cleaned.csv")
 
 with open(fname_in, "rt") as infile:
     row1 = infile.readline()
