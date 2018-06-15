@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.idea/
+.ipynb_checkpoints/
+__pycache__/
+utils/V22_17_Coefficient_cleaned.csv
