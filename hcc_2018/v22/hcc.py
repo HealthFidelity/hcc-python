@@ -59,7 +59,7 @@ class Beneficiary(pyDatalog.Mixin):
 							hicno,sex,dob,
 							original_reason_entitlement=EntitlementReason.OASI,
 							medicaid=False,
-							newenrollee_medicaid=False,):
+							newenrollee_medicaid=False):
 		super().__init__()
 		self.hicno = hicno
 		self.sex = sex
