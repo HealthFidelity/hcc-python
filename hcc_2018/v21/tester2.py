@@ -1,4 +1,4 @@
-from hcc_2018_87 import Diagnosis, Beneficiary, ICDType, score, EntitlementReason
+from hcc import Diagnosis, Beneficiary, ICDType, score, EntitlementReason
 from pyDatalog import pyDatalog
 
 
