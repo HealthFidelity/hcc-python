@@ -2,7 +2,7 @@ from hcc import Diagnosis, Beneficiary, ICDType, score, EntitlementReason
 from pyDatalog import pyDatalog
 
 
-person= Beneficiary(hicno="002267669A", sex= "female",dob= "20180112")
+person= Beneficiary(hicno="002267669A", sex= "female",dob= "19880112")
 
 person.add_diagnosis(Diagnosis(person,"M25511",ICDType.TEN))
 person.add_diagnosis(Diagnosis(person,"I272",ICDType.TEN))

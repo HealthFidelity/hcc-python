@@ -1,5 +1,4 @@
-from enum import Enum,IntEnum::wq
-wq
+from enum import Enum,IntEnum
 
 from functools import reduce
 from datetime import datetime

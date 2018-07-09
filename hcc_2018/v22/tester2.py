@@ -2,7 +2,7 @@ from hcc import Diagnosis, Beneficiary, ICDType, score, EntitlementReason
 from pyDatalog import pyDatalog
 
 
-person= Beneficiary(hicno="002267669A", sex= "female",dob= "20180112")
+person= Beneficiary(hicno="002267669A", sex= "female",dob= "19200112",original_reason_entitlement=EntitlementReason.DIB,medicaid= True,newenrollee_medicaid=True)
 
 person.add_diagnosis(Diagnosis(person,"M25511",ICDType.TEN))
 person.add_diagnosis(Diagnosis(person,"I272",ICDType.TEN))
@@ -50,6 +50,24 @@ print("institutional: %s" % X)
 
 score(person, "new_enrollee", X)
 print("new_enrollee: %s" % X)
+
+score(person, "community_nondual_disabled", X)
+print("community_nondual_disabled: %s" % X)
+
+score(person, "community_full_benefit_dual_aged", X)
+print("community_full_benefit_dual_aged: %s" % X)
+
+score(person, "community_full_benefit_dual_disabled", X)
+print("community_full_benefit_dual_disabled: %s" % X)
+
+score(person, "community_partial_benefit_dual_aged", X)
+print("community_partial_benefit_dual_aged: %s" % X)
+
+score(person, "community_partial_benefit_dual_disabled", X)
+print("community_partial_benefit_dual_disabled: %s" % X)
+
+score(person, "snp_new_enrollee", X)
+print("snp_new_enrollee: %s" % X)
 '''
 
 """ 

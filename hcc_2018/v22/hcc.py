@@ -338,20 +338,16 @@ def load_rules():
 	#    ORIGDS  = (&OREC = '1')*(DISABL = 0);
 	originally_disabled(B) <= (Ben.original_reason_entitlement[B] == EntitlementReason.DIB) & ~(disabled(B))
 
-	edit(ICD,9,B,"48")  <= female(B) & (ICD.in_(["2860", "2861"]))
-	edit(ICD,9,B,"112") <= age(B,A)  & (A < 18) & \
-															(ICD.in_(["4910", "4911", "49120", "49121", "49122",
-																				"4918", "4919", "4920",  "4928",  "496",  
-																				"5181", "5182"]))
 	edit(ICD,0,B,"48")  <= female(B) & (ICD.in_(["D66", "D67"]))
 	edit(ICD,0,B,"112") <= age(B,A)  & (A < 18) & (ICD.in_(["J410", 
 																 "J411", "J418", "J42",  "J430",
 																 "J431", "J432", "J438", "J439", "J440",
 																 "J441", "J449", "J982", "J983"]))
-
-	#IF &AGE < 18 AND &ICD9 IN ("49320", "49321", "49322") 
-	#                                           THEN CC="-1.0";
-	excised(ICD,9,B) <= age(B,A)  & (A < 18) & (ICD.in_(["49320", "49321", "49322"]))
+	#ELSE 
+	#IF (&AGE < 6 OR &AGE > 18) AND &ICD10 = "F3481"
+	#                                         THEN CC="-1.0";
+	excised(ICD,10,B) <= age(B,A)  & (A < 6) & (ICD.in_(["F3481"]))
+	excised(ICD,10,B) <= age(B,A)  & (A > 18) & (ICD.in_(["F3481"]))
 
 	beneficiary_icd(B,ICD,Type) <= (Diag.beneficiary[D] == B) & (Diag.icdcode[D]==ICD) & (Diag.codetype[D]==Type) 
 	beneficiary_has_cc(B,CC) <= beneficiary_icd(B,ICD,Type)  & edit(ICD,Type,B,CC) & ~(excised(ICD,Type,B))
